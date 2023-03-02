@@ -1,0 +1,15 @@
+ReactJS Development #22 - Basic CRUD Operation #coding #webdevelopment #fullstack
+
+
+Teacher CRUD
+
+C = Create
+R = Read
+U = Update
+D = Delete
+
+Teacher CRUD  APIs
+
+oldaoo.map((cv,idx,arr)=>{
+			return newaoo 
+})
