@@ -2,7 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 // Import DefaultImoprt from 'SomeLocation';
-import Teacher from './Teacher';
+import Teacher from './pages/Teacher';
 
 import reportWebVitals from './reportWebVitals';
 

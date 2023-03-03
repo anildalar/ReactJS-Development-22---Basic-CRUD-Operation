@@ -3,13 +3,17 @@ ReactJS Development #22 - Basic CRUD Operation #coding #webdevelopment #fullstac
 
 Teacher CRUD
 
-C = Create
-R = Read
+C = Create  Yet to Do
+R = Read  Done
 U = Update
 D = Delete
 
-Teacher CRUD  APIs
+REST = Representainal State Transfer
+
+Teacher CRUD REST APIs
 
 oldaoo.map((cv,idx,arr)=>{
 			return newaoo 
 })
+
+
