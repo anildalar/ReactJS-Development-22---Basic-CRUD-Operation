@@ -97,9 +97,49 @@ function Teacher() {
     });
   }
 
+  let deleteTeacher = (e)=>{
+    document.getElementById("loader").innerHTML = `<div className="d-flex justify-content-center">
+                                                      <div className="spinner-border" role="status">
+                                                        <span className="visually-hidden">Loading...</span>
+                                                      </div>
+                                                    </div>`
+
+    let x = e.target.closest('tr');
+    console.log(e.target.closest('tr').querySelector('td:first-child').innerHTML);
+    let delid = e.target.closest('tr').querySelector('td:first-child').innerHTML;
+    let ans = window.confirm('Are you sure youDo you really want to delete');
+    console.log(typeof ans);
+    if(ans === true){
+
+      //Call the DELETE REST API
+      fetch(`http://localhost:1337/api/teachers/${delid}`,{
+        method:"DELETE"
+      })
+      .then((res)=>{
+        // This json() function make the incomming data json readable
+        return res.json();
+      })
+      .then((data)=>{
+          x.remove();
+          console.log(data);
+          document.getElementById("loader").innerHTML ='';
+          window.alert('Deleted Successfully ');
+      })
+      .catch((err)=>{
+
+      });
+
+    }else{
+      console.log('Not OK');
+    }
+  }
+
   //2.3 Return statement
   return (
       <>
+        <div id="loader">
+          
+        </div>
         <div className="container">
           <h1>Create Teacher</h1>
           <form>
@@ -113,12 +153,13 @@ function Teacher() {
           <hr />
           <hr />
           <br />
-          <table class="table">
+          <table className="table">
             <thead>
               <tr>
                 <th scope="col">#</th>
                 <th scope="col">Name</th>
                 <th scope="col">CreatedAt</th>
+                <th scope="col">Action</th>
               </tr>
             </thead>
             <tbody>
@@ -128,6 +169,11 @@ function Teacher() {
                             <td>{cv.id}</td>
                             <td>{cv.name}</td>
                             <td>{cv.createdAt}</td>
+                            <td>
+                              <button className="btn btn-success btn-sm">View</button>
+                              <button className="btn btn-primary btn-sm">Edit</button>
+                              <button className="btn btn-danger btn-sm" onClick={(e)=>{ deleteTeacher(e) }}>Delete</button>
+                            </td>
                           </tr>
                 })
               }
