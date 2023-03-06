@@ -16,4 +16,19 @@ oldaoo.map((cv,idx,arr)=>{
 			return newaoo 
 })
 
+Action BUttons
+1. Delete
+2. Update
+3. View
+
+button is button
+a is button
+input type="button" is a button
+
+onClick
+
+DOM Traversing  (Travel)
+Parent ---> CHild    (Traversing Down)  find()/querySelector()
+Child -----> Parent  (Traversing Up)  closes()
+
 

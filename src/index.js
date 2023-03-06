@@ -1,6 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import './index.css';
+import EditTeacher from './pages/EditTeacher';
 // Import DefaultImoprt from 'SomeLocation';
 import Teacher from './pages/Teacher';
 
@@ -9,7 +11,13 @@ import reportWebVitals from './reportWebVitals';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <Teacher />
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={ <Teacher />}></Route>
+        <Route path="/editTeacher" element={ <EditTeacher /> }></Route>
+      </Routes>
+    </BrowserRouter>
+   
   </React.StrictMode>
 );
 

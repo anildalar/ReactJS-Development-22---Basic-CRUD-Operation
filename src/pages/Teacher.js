@@ -1,6 +1,7 @@
 //1. Import Area
 
 import { useEffect, useState } from "react";
+import { Link } from "react-router-dom";
 
 
 
@@ -8,20 +9,8 @@ import { useEffect, useState } from "react";
 //2. Defination Area
 function Teacher() {
   //2.1 Hooks Area
-
   // const [variable,setVariable] = useState(initialValue);
-  const [teachers,setTeachers] = useState([
-                                            {
-                                              id:1,
-                                              name:'Anil',
-                                              createdAt:'123123'
-                                            },
-                                            {
-                                              id:2,
-                                              name:'Sunil',
-                                              createdAt:'1829873'
-                                            }
-                                          ])
+  const [teachers,setTeachers] = useState([])
   const [payload,setPayload] = useState({
                                           "data": {
                                             "name": "Teacher3"
@@ -165,13 +154,13 @@ function Teacher() {
             <tbody>
               {
                 teachers.map((cv,idx,arr)=>{
-                  return <tr>
+                  return <tr key={idx}>
                             <td>{cv.id}</td>
                             <td>{cv.name}</td>
                             <td>{cv.createdAt}</td>
                             <td>
                               <button className="btn btn-success btn-sm">View</button>
-                              <button className="btn btn-primary btn-sm">Edit</button>
+                              <a href={`/editTeacher?id=${cv.id}&name=${cv.name}`} className="btn btn-success btn-sm">Edit</a>
                               <button className="btn btn-danger btn-sm" onClick={(e)=>{ deleteTeacher(e) }}>Delete</button>
                             </td>
                           </tr>
